@@ -11,3 +11,5 @@
 
 #!.yarn/cache
 .pnp.*
+
+token_bot.js

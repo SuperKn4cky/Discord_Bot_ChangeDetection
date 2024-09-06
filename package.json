@@ -1,5 +1,9 @@
 {
   "name": "Discord_Bot_ChangeDetection",
   "packageManager": "yarn@4.4.1",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "discord.js": "^14.16.1",
+    "fastify": "^4.28.1"
+  }
 }
