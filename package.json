@@ -1,0 +1,5 @@
+{
+  "name": "Discord_Bot_ChangeDetection",
+  "packageManager": "yarn@4.4.1",
+  "type": "module"
+}
