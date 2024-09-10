@@ -30,13 +30,13 @@ async function sendDmToUsers(userIds, messageContent) {
 }
 
 web_server.post('/send-message', async (request, reply) => {
-  console.log('Requête reçue (headers):', request.headers);
-  console.log('Requête reçue (body):', request.body);
+  console.log('Requete:', request);
 
   const {userIds} = request.query;
   const {title, message} = request.body;
 
   if (!userIds) {
+    console.log('Erreur: userIds manquant');
     reply.code(400).send({error: 'userIds requis'});
     return;
   }

@@ -1,6 +1,6 @@
 services:
   discord-bot:
-    image: superknacky/discord-bot:v1
+    image: superknacky/discord-bot:latest
     container_name: discord-bot
     environment:
       - DISCORD_TOKEN=token
