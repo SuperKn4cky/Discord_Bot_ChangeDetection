@@ -1,8 +1,8 @@
 import {Client, GatewayIntentBits} from 'discord.js';
 import Fastify from 'fastify';
 
-import {TOKEN} from './token_bot.js';
-
+const TOKEN = process.env.DISCORD_TOKEN;
+console.log(`Token: ${TOKEN}`);
 
 const client = new Client({
   intents: [

@@ -1,0 +1,9 @@
+services:
+  discord-bot:
+    image: superknacky/discord-bot:v1
+    container_name: discord-bot
+    environment:
+      - DISCORD_TOKEN=token
+    ports:
+      - "5001:5001"
+    restart: unless-stopped
