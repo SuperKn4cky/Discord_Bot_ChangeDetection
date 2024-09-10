@@ -36,15 +36,14 @@ web_server.post('/send-message', async (request, reply) => {
   const {userIds} = request.query;
   const {title, message} = request.body;
 
-  if (!userIds || !message) {
-    reply.code(400).send({error: 'userIds et message sont requis'});
+  if (!userIds) {
+    reply.code(400).send({error: 'userIds requis'});
     return;
   }
 
-  let combinedMessage = message;
-  if (title) {
-    combinedMessage = `**${title}**\n\n${message}`;
-  }
+  let combinedMessage = `**${title}**\n\n${message}`;
+
+  console.log(`Message envoyé: ${combinedMessage}`);
 
   const userIdList = userIds.split(',');
 
