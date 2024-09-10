@@ -34,16 +34,21 @@ web_server.post('/send-message', async (request, reply) => {
   console.log('Requête reçue (body):', request.body);
 
   const {userIds} = request.query;
-  const {message} = request.body;
+  const {title, message} = request.body;
 
   if (!userIds || !message) {
     reply.code(400).send({error: 'userIds et message sont requis'});
     return;
   }
 
+  let combinedMessage = message;
+  if (title) {
+    combinedMessage = `**${title}**\n\n${message}`;
+  }
+
   const userIdList = userIds.split(',');
 
-  await sendDmToUsers(userIdList, message);
+  await sendDmToUsers(userIdList, combinedMessage);
   reply.send({status: 'Messages privés envoyés avec succès'});
 });
 
