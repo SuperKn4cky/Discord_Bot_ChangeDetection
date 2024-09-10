@@ -30,6 +30,9 @@ async function sendDmToUsers(userIds, messageContent) {
 }
 
 web_server.post('/send-message', async (request, reply) => {
+  console.log('Requête reçue (headers):', request.headers);
+  console.log('Requête reçue (body):', request.body);
+
   const {userIds} = request.query;
   const {message} = request.body;
 
