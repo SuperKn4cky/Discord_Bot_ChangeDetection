@@ -1,6 +1,6 @@
 services:
   discord-bot:
-    image: superknacky/discord-bot:latest
+    image: warden696/node-changedetection-api-bot:22.3.0-alpine
     container_name: discord-bot
     environment:
       - DISCORD_TOKEN=token
