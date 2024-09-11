@@ -58,7 +58,7 @@ Ce projet utilise Docker pour déployer une API qui envoie des messages privés 
 
 Configurez ChangeDetection.io pour envoyer une requête POST à votre serveur :
 
-- **Notification URL** : `post://<votre-ip>:5001/send-message?userids=<userID1>,<userID2>`
+- **Notification URL** : `post://<votre-ip>:5001/send-message?userids=<userID1>,<userID2>,...`
 - **Corps de la notification** :
   ```json
   {
