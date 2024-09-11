@@ -1,4 +1,4 @@
-import { Client, GatewayIntentBits } from 'discord.js';
+import {Client, GatewayIntentBits} from 'discord.js';
 import Fastify from 'fastify';
 
 const TOKEN = process.env.DISCORD_TOKEN;
@@ -10,20 +10,21 @@ const client = new Client({
   ],
 });
 
-const web_server = Fastify({ logger: true });
+
+const web_server = Fastify({logger: true});
 
 client.once('ready', () => {
   console.log(`Bot connecté en tant que ${client.user.tag}`);
 });
 
-async function sendDmToUsers(userIds, messageContent) {
-  for (const userId of userIds) {
+async function sendDmToUsers(userids, messageContent) {
+  for (const userids of userids) {
     try {
-      const user = await client.users.fetch(userId);
+      const user = await client.users.fetch(userids);
       await user.send(messageContent);
       console.log(`Message envoyé à ${user.tag}`);
     } catch (error) {
-      console.error(`Impossible d'envoyer le message à ${userId}`, error);
+      console.error(`Impossible d'envoyer le message à ${userids}`, error);
     }
   }
 }
@@ -36,8 +37,9 @@ web_server.post('/send-message', async (request, reply) => {
   const {userids} = request.query;
   const {title, message} = request.body;
 
-    console.log('Erreur: userIds manquant');
-    reply.code(400).send({error: 'userIds requis'});
+  if (!userids) {
+    console.log('Erreur: userids manquant');
+    reply.code(400).send({error: 'userids requis'});
     return;
   }
 
@@ -53,7 +55,7 @@ web_server.post('/send-message', async (request, reply) => {
 
 const start = async () => {
   try {
-    await web_server.listen({ port: 5001, host: '0.0.0.0' });
+    await web_server.listen({port: 5001, host: '0.0.0.0'});
     console.log('Serveur Fastify en écoute sur le port 5001');
   } catch (err) {
     web_server.log.error(err);
@@ -64,4 +66,3 @@ const start = async () => {
 client.login(TOKEN).then(() => {
   start();
 });
-
