@@ -12,8 +12,8 @@ Ce projet utilise Docker pour déployer une API qui envoie des messages privés 
 
 1. Clonez ce dépôt :
    ```bash
-   git clone <url-du-repo>
-   cd <nom-du-repo>
+   git clone [<url-du-repo>](https://github.com/SuperKn4cky/Discord_Bot_ChangeDetection.git)
+   cd Discord_Bot_ChangeDetection
    ```
 2. Modifiez le fichier `docker-compose.yml` avec le token de votre bot :
  ```yaml
